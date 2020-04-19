@@ -1,0 +1,16 @@
+DB $ff, $83, $ff, $39, $ff, $3f, $ff, $83, $ff, $f9, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $ff, $ff, $ff, $ff, $83, $ff, $39, $ff, $3f, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $ff, $ff, $ff, $ff, $83, $ff, $39, $ff, $39, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $ff, $ff, $ff, $ff, $21, $ff, $89, $ff, $9f, $ff, $9f, $ff, $0f, $ff, $ff
+DB $ff, $ff, $ff, $ff, $ff, $83, $ff, $39, $ff, $01, $ff, $3f, $ff, $83, $ff, $ff
+DB $ff, $ff, $ff, $ff, $ff, $9f, $ff, $ff, $ff, $ff, $ff, $9f, $ff, $ff, $ff, $ff
+DB $ff, $83, $ff, $31, $ff, $21, $ff, $09, $ff, $19, $ff, $19, $ff, $83, $ff, $ff
+DB $ff, $e7, $ff, $c7, $ff, $87, $ff, $e7, $ff, $e7, $ff, $e7, $ff, $81, $ff, $ff
+DB $ff, $83, $ff, $39, $ff, $f9, $ff, $e3, $ff, $8f, $ff, $39, $ff, $01, $ff, $ff
+DB $ff, $83, $ff, $39, $ff, $f9, $ff, $c3, $ff, $f9, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $e3, $ff, $c3, $ff, $93, $ff, $33, $ff, $01, $ff, $f3, $ff, $e1, $ff, $ff
+DB $ff, $01, $ff, $3f, $ff, $03, $ff, $f9, $ff, $f9, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $83, $ff, $39, $ff, $3f, $ff, $03, $ff, $39, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $01, $ff, $39, $ff, $f3, $ff, $e7, $ff, $cf, $ff, $cf, $ff, $cf, $ff, $ff
+DB $ff, $83, $ff, $39, $ff, $39, $ff, $83, $ff, $39, $ff, $39, $ff, $83, $ff, $ff
+DB $ff, $83, $ff, $39, $ff, $39, $ff, $81, $ff, $f9, $ff, $39, $ff, $83, $ff, $ff
