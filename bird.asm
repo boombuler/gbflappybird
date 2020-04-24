@@ -26,6 +26,33 @@ SECTION ROM 0
 #set BirdTickFreq = 4
 #set BirdFrames = 4
 
+MACRO DrawScore %tileZero, %firstDigit
+    ; Load Ptr to the upper two digits to HL
+        LD   HL, (SCORE+1)
+    .Digit_Hundreds:
+        AND  $0F
+        ADD  A, %tileZero
+        LD   [%firstDigit+1], A
+    .Digit_Thousands:
+        LD   A, [HL]
+        SWAP A
+        AND  $0F
+        ADD  A, %tileZero
+        LD   [%firstDigit], A
+    .Digit_Ones:
+        DEC  HL
+        LD   A, [HL]
+        AND  $0F
+        ADD  A, %tileZero
+        LD   [%firstDigit+3], A
+    .Digit_Tens:
+        LD   A, [HL]
+        SWAP A
+        AND  $0F
+        ADD  A, %tileZero
+        LD   [%firstDigit+2], A
+MEND
+
 BIRD_FRAMES::
         db BIRD_FRAME1, BIRD_FRAME2, BIRD_FRAME1, BIRD_FRAME3
 
@@ -226,28 +253,8 @@ CheckScore::
         #set WindowMapStart = $9800
         #set FirstDigit = WindowMapStart + 6
     ; Update Window Map.
-    .Digit_Hundreds:
-        AND  $0F
-        ADD  A, (SPRT_SCORE+6)
-        LD   [FirstDigit+1], A
-    .Digit_Thousands:
-        LD   A, [HL]
-        SWAP A
-        AND  $0F
-        ADD  A, (SPRT_SCORE+6)
-        LD   [FirstDigit], A
-    .Digit_Ones:
-        DEC  HL
-        LD   A, [HL]
-        AND  $0F
-        ADD  A, (SPRT_SCORE+6)
-        LD   [FirstDigit+3], A
-    .Digit_Tens:
-        LD   A, [HL]
-        SWAP A
-        AND  $0F
-        ADD  A, (SPRT_SCORE+6)
-        LD   [FirstDigit+2], A
+    
+        DrawScore (SPRT_SCORE+6), FirstDigit
         RET  ;
 
 

@@ -41,10 +41,10 @@ NewGame::
 
         ; Enable Vblank and LCDStat Interrupts
         LD   A, (IRQ_VBlank|IRQ_LCDStat)
-        LD   [IE], A
+        LDH  [IE], A
 
         LD   A, (4 * 8); Coincidence Interrupt on Line
-        LD   [LYC], A
+        LDH  [LYC], A
 
         ; Stat Register
         ; Bit 6 - LYC=LY Coincidence Interrupt (1=Enable) (Read/Write)
@@ -54,7 +54,7 @@ NewGame::
         ; Bit 2 - Coincidence Flag  (0:LYC<>LY, 1:LYC=LY) (Read Only)
         ; Bit 1-0 - Mode Flag       (Mode 0-3, see below) (Read Only)
         LD   A, 0b0100_0000 ; Request Coincidence Interrupt
-        LD   [STAT], A
+        LDH  [STAT], A
 
         ; Continue with GameLoop
 

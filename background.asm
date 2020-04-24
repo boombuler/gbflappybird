@@ -56,22 +56,21 @@ INITIAL_BG_MAP::
         DS 0
     #set BG_MAP_SIZE = .BGEND - INITIAL_BG_MAP
 
-SECTION ROM 0
 
-InitBGMap::
+MACRO CopyBGMap %size, %target, %source, %palMap
         ; Init GB Color 
         LD   A, 1
         LDH  [VBK], A
 
-        LD   DE, (BG_MAP_SIZE + $0100)
-        LD   BC, $9800
-        LD   HL, INITIAL_BG_MAP
+        LD   DE, (%size + $0100)
+        LD   BC, %target
+        LD   HL, %source
         ; Apply Sprite Attributes for the BG Map.
     .spriteAttrLoop:
         LD   A, [HL++]
         PUSH HL
         PUSH DE
-        LD   HL, BG_PALETTE_MAP
+        LD   HL, %palMap
         LD   D, 0
         LD   E, A
         ADD  HL, DE
@@ -91,10 +90,19 @@ InitBGMap::
 
 
         ; Copy Tile Data
-        LD   DE, (BG_MAP_SIZE)
-        LD   BC, $9800
-        LD   HL, INITIAL_BG_MAP
+        LD   DE, (%size)
+        LD   BC, %target
+        LD   HL, %source
 
         MemCopy16
 
+MEND
+
+
+
+
+SECTION ROM 0
+
+InitBGMap::
+        CopyBGMap BG_MAP_SIZE, $9800, INITIAL_BG_MAP, BG_PALETTE_MAP
         RET

@@ -138,8 +138,11 @@ DB $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $f
 #include "images/floor.inc"
 
 #set SPRT_SCORE = 4
+SPRITE_SCORE::
 ; 16 Tiles: Score:0123456789
 #include "images/score.inc"
+.End::
+    DS 0
 
 CLOUD:
 ; 8 Tiles: 18 - 27
