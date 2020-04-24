@@ -71,7 +71,7 @@ GameLoop:
 
         LD   HL, Bird.Flags
         BIT  BFL_LANDED, [HL]
-        JR   nz, GameOver           ; Bird is Dead and has landed. go to game over...
+        JP   nz, GameOver           ; Bird is Dead and has landed. go to game over...
 
         CALL UpdatePipes            ; Update Pipe Position and generate new Pipes
         CALL BirdUpdate             ; Update Bird.
@@ -91,17 +91,3 @@ GameLoop:
         LDH  [SCX], A ; Scroll BG
 
         JR   GameLoop
-
-
-GameOver:
-        ; Remove LCDStat and VBlank Interrupt
-        DI 
-        XOR  A
-        LD   [IE], A 
-
-        ; Apply Top Scrolling to the BG...
-        LD A, [ BGScroll.Top]
-        LDH [SCX], A ; Scroll BG
-
-
-        JP NewGame

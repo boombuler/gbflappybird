@@ -13,6 +13,7 @@
 #INCLUDE "pipes.asm"
 #INCLUDE "bird.asm"
 #INCLUDE "game.asm"
+#INCLUDE "gameover.asm"
 
 SECTION ROM 0 @ $0048
         NOP
