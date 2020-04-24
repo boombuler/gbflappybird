@@ -32,7 +32,7 @@ NewGame::
         LDH  [LCDC], A
 
         ; Setup Window Position
-        LD   A, 0
+        LD   A, 7
         LDH  [WX], A
         LD   A, 136
         LDH  [WY], A
