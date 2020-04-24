@@ -1,0 +1,6 @@
+.vscode/
+.DS_Store
+**/*.gb
+**/*.gbc
+**/*.sav
+**/*.sym
