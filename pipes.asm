@@ -73,10 +73,10 @@ GeneratePipe::
         LD   [HL], A
 
     ; Setup Y Pos
-        CALL GetNextRndNum
-        SRL  A
-        SRL  A
-        ADD  A, 16      ; A Contains a Value between 16 and 79
+        CALL GetNextRndNum  ; 0-255
+        SRL  A              ; 0-127
+        SRL  A              ; 0-63
+        ADD  A, 12          ; A Contains a Value between 12 and 75
 
         LD   [GeneratedHolePos], A
         POP  HL
